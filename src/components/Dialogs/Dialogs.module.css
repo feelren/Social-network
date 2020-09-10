@@ -1,0 +1,25 @@
+.wrapper {
+    padding: 10px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 2fr 2px 9fr;
+}
+
+hr {
+    height: 2px;
+    border: none;
+    background-color: black;
+}
+
+.header {
+    font-size: 20px;
+    letter-spacing: 1.5px;
+}
+
+.splitLine {
+    width: 2px;
+    background-color: black;
+    opacity: 0.2;
+}

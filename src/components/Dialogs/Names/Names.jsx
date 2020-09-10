@@ -1,0 +1,39 @@
+import React from "react";
+import s from "./Names.module.css";
+import { NavLink } from "react-router-dom";
+
+const Name = (props) => {
+    let path = "/dialogs/" + props.id;
+
+    return (
+        <NavLink className={s.wrapper} id={props.id} to={path}>
+            <img src={props.src} alt="аватарка" />
+            <p>{props.name}</p>
+        </NavLink>
+    );
+};
+
+const Names = (props) => {
+    let namesElements = props.namesData.map((item) => <Name id={item.id} name={item.name} src={item.src} />);
+    let name = React.createRef();
+    let src = React.createRef();
+
+    let addName = function (text, ref) {
+        text = name.current.value;
+        ref = src.current.value;
+        props.addName(text, ref);
+    };
+
+    return (
+        <div className={s.wrap}>
+            <nav>{namesElements}</nav>
+            <input type="text" ref={name} />
+            <input type="text" ref={src} />
+            <button type="submit" onClick={addName}>
+                Создать
+            </button>
+        </div>
+    );
+};
+
+export default Names;

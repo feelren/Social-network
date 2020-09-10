@@ -1,0 +1,22 @@
+.nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.item {
+    display: block;
+    padding: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: black;
+}
+.nav a:hover {
+    background-color: #fff;
+}
+
+.active {
+    font-weight: bold;
+}

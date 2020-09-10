@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    margin: 7px;
+    padding: 5px 10px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    background-color: #fff;
+}
+
+.wrapper img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.wrapper p {
+    margin-left: 15px;
+    color: black;
+}
+
+.wrap input {
+    margin-right: 10px;
+}
