@@ -6,6 +6,7 @@
     padding: 10px;
     margin-bottom: 50px;
 }
+
 .item {
     display: block;
     padding: 10px;
@@ -13,6 +14,7 @@
     text-decoration: none;
     color: black;
 }
+
 .nav a:hover {
     background-color: #fff;
 }

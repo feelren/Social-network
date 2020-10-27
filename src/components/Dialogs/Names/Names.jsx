@@ -27,8 +27,8 @@ const Names = (props) => {
     return (
         <div className={s.wrap}>
             <nav>{namesElements}</nav>
-            <input type="text" ref={name} />
-            <input type="text" ref={src} />
+            <input type="text" placeholder='Введите имя' ref={name} />
+            <input type="text" placeholder='Ссылка на фото' ref={src} />
             <button type="submit" onClick={addName}>
                 Создать
             </button>

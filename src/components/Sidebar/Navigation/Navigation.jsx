@@ -2,14 +2,16 @@ import React from "react";
 import s from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
 
+
 const Navigation = () => {
+
     return (
         <nav className={s.nav}>
-            <NavLink to="/dialogs" className={s.item} activeClassName={s.active}>
-                Сообщения
-            </NavLink>
             <NavLink to="/profile" className={s.item} activeClassName={s.active}>
                 Профиль
+            </NavLink>
+            <NavLink to="/dialogs" className={s.item} activeClassName={s.active}>
+                Сообщения
             </NavLink>
             <NavLink to="/news" className={s.item} activeClassName={s.active}>
                 Новости

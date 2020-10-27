@@ -7,5 +7,4 @@ const Friends = (props) => {
 
     return <div className={s.wrapper}>{friendsElements}</div>;
 };
-
 export default Friends;

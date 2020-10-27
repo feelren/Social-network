@@ -1,3 +1,5 @@
+let renderApp = () => console.log("saves confirmed");
+
 let state = {
     dialogs: {
         chatsData: [
@@ -60,35 +62,36 @@ let state = {
         ],
     },
     profile: {
+        newText: "",
         postsData: [
             {
                 id: 0,
-                text: "sadas",
+                text: "1",
                 likes: 2,
             },
             {
                 id: 1,
-                text: "fasdfaf",
+                text: "2",
                 likes: 5,
             },
             {
                 id: 2,
-                text: "124142",
+                text: "3",
                 likes: 0,
             },
             {
                 id: 3,
-                text: "sadff",
+                text: "4",
                 likes: 2,
             },
             {
                 id: 4,
-                text: "adsfaf",
+                text: "5",
                 likes: 1,
             },
             {
                 id: 5,
-                text: "gadgaa",
+                text: "6",
                 likes: 5,
             },
         ],
@@ -101,7 +104,33 @@ export let addName = function (text, ref) {
         name: text,
         src: ref,
     };
+
     state.dialogs.namesData.push(newObj);
+    renderApp(state);
+};
+
+export let addPost = function () {
+    if (state.profile.newText) {
+        let newObj = {
+            id: state.profile.postsData.length,
+            text: state.profile.newText,
+            likes: 0,
+        };
+
+        state.profile.postsData.push(newObj);
+        state.profile.newText = "";
+        renderApp(state);
+    } else alert("Поле пустое");
+};
+
+export let changePostText = function (text) {
+    state.profile.newText = text;
+    renderApp(state);
+    console.log(state.profile);
+};
+
+export let subscriber = (observer) => {
+    renderApp = observer;
 };
 
 export default state;

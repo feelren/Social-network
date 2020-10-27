@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Post.module.css";
+import s from "./Posts.module.css";
 
 const OnePost = (props) => {
     return (
@@ -19,10 +19,10 @@ const OnePost = (props) => {
     );
 };
 
-const Post = (props) => {
+const Posts = (props) => {
     let postsElements = props.postsData.map((item) => <OnePost text={item.text} likes={item.likes} />);
 
     return <div className={s.posts}>{postsElements}</div>;
 };
 
-export default Post;
+export default Posts;

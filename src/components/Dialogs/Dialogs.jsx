@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Names from "./Names/Names";
 import Chats from "./Chats/Chats";
+import SplitLine from './SplitLine/SplitLine'
 
 const Dialogs = (props) => {
     return (
@@ -10,7 +11,7 @@ const Dialogs = (props) => {
             <hr />
             <div className={s.content}>
                 <Names namesData={props.state.namesData} addName={props.addName} />
-                <div className={s.splitLine}></div>
+                <SplitLine />
                 <Chats chatsData={props.state.chatsData} />
             </div>
         </div>
