@@ -110,35 +110,37 @@ let store = {
     },
 
     dispatch(action) {
-        if ( action.type === "ADD-NAME" ) {
-
-            let newObj = {
-                id: this._state.dialogs.namesData.length,
-                name: action.text,
-                src: action.ref,
-            };
-
-            this._state.dialogs.namesData.push(newObj);
-            this._subscriber(this);
-        } else if ( action.type === "ADD-POST" ) {
-
-            if (this._state.profile.newText) {
-
+        switch (action.type) {
+            case 'ADD-NAME':
                 let newObj = {
-                    id: this._state.profile.postsData.length,
-                    text: this._state.profile.newText,
-                    likes: 0,
+                    id: this._state.dialogs.namesData.length,
+                    name: action.text,
+                    src: action.ref,
                 };
-
-                this._state.profile.postsData.push(newObj);
-                this._state.profile.newText = "";
+        
+                this._state.dialogs.namesData.push(newObj);
                 this._subscriber(this);
-            } else alert("Поле пустое");
-
-        } else if ( action.type === 'CHANGE-POST-TEXT' ) {
-
-            this._state.profile.newText = action.text;
-            this._subscriber(this);
+                break;
+        
+            case 'ADD-POST':
+                if (this._state.profile.newText) {
+                    let newObj = {
+                        id: this._state.profile.postsData.length,
+                        text: this._state.profile.newText,
+                        likes: 0,
+                    };
+                    this._state.profile.postsData.push(newObj);
+                    this._state.profile.newText = "";
+                    this._subscriber(this);
+                } else alert("Поле пустое");
+                break;
+        
+            case 'CHANGE-POST-TEXT':
+                this._state.profile.newText = action.text;
+                this._subscriber(this);
+                break;
+                
+            default: console.log('default case? O_o');
         }
     },
 
