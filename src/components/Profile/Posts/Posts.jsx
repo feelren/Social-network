@@ -20,7 +20,7 @@ const OnePost = (props) => {
 };
 
 const Posts = (props) => {
-    let postsElements = props.postsData.map((item) => <OnePost text={item.text} likes={item.likes} />);
+    let postsElements = props.state.map((item) => <OnePost text={item.text} likes={item.likes} />);
 
     return <div className={s.posts}>{postsElements}</div>;
 };

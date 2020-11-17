@@ -14,14 +14,18 @@ const Name = (props) => {
 };
 
 const Names = (props) => {
-    let namesElements = props.namesData.map((item) => <Name id={item.id} name={item.name} src={item.src} />);
+    let namesElements = props.state.map((item) => <Name id={item.id} name={item.name} src={item.src} />);
     let name = React.createRef();
     let src = React.createRef();
 
     let addName = function (text, ref) {
         text = name.current.value;
         ref = src.current.value;
-        props.addName(text, ref);
+        props.dispatch({
+            type: 'ADD-NAME',
+            text: text,
+            ref: ref
+        });
     };
 
     return (

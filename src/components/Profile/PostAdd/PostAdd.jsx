@@ -5,12 +5,14 @@ const PostAdd = (props) => {
     let textarea = React.createRef();
 
 
-    let addPost = () => props.addPost();
+    let addPost = () => props.dispatch({ type: 'ADD-POST' });
 
     function changeText(text) {
         text = textarea.current.value;
-        console.log(text);
-        props.changePostText(text);
+        props.dispatch({
+            type: 'CHANGE-POST-TEXT',
+            text: text,
+        });
     }
 
 

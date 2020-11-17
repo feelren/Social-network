@@ -6,7 +6,7 @@ const Chat = (props) => {
 };
 
 const Chats = (props) => {
-    let chatsElements = props.chatsData.map((c) => <Chat id={c.id} message={c.message} />);
+    let chatsElements = props.state.map((c) => <Chat id={c.id} message={c.message} />);
     return <div className={s.chat}>{chatsElements}</div>;
 };
 

@@ -12,8 +12,8 @@ function App(props) {
             <Header />
             <Sidebar state={props.state.dialogs.namesData} />
             <div className="wrapper-content">
-                <Route path="/profile" render={() => <Profile state={props.state.profile} addPost={props.addPost} changePostText={props.changePostText} />} />
-                <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogs} addName={props.addName} />} />
+                <Route path="/profile" render={() => <Profile state={props.state.profile.postsData} dispatch={props.dispatch} />} />
+                <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogs} dispatch={props.dispatch} />} />
             </div>
         </div>
     );

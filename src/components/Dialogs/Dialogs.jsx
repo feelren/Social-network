@@ -10,9 +10,9 @@ const Dialogs = (props) => {
             <header className={s.header}>Мои сообщения</header>
             <hr />
             <div className={s.content}>
-                <Names namesData={props.state.namesData} addName={props.addName} />
+                <Names state={props.state.namesData} dispatch={props.dispatch} />
                 <SplitLine />
-                <Chats chatsData={props.state.chatsData} />
+                <Chats state={props.state.chatsData} />
             </div>
         </div>
     );
