@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Names.module.css";
 import { NavLink } from "react-router-dom";
+import { addNameActionCreator } from "../../../redux/state";
 
 const Name = (props) => {
     let path = "/dialogs/" + props.id;
@@ -13,6 +14,8 @@ const Name = (props) => {
     );
 };
 
+
+
 const Names = (props) => {
     let namesElements = props.state.map((item) => <Name id={item.id} name={item.name} src={item.src} />);
     let name = React.createRef();
@@ -21,11 +24,7 @@ const Names = (props) => {
     let addName = function (text, ref) {
         text = name.current.value;
         ref = src.current.value;
-        props.dispatch({
-            type: 'ADD-NAME',
-            text: text,
-            ref: ref
-        });
+        props.dispatch(addNameActionCreator(text, ref));
     };
 
     return (

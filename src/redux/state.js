@@ -1,14 +1,13 @@
-
-
-
+const ADD_POST = "ADD-POST";
+const CHANGE_POST_TEXT = "CHANGE-POST-TEXT";
+const ADD_NAME = "ADD-NAME";
+const CHANGE_MESSAGE_TEXT = "CHANGE-MESSAGE-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
 
 let store = {
-    _subscriber() {
-        console.log("subscriber");
-    },
-
     _state: {
         dialogs: {
+            newText: "",
             chatsData: [
                 {
                     id: 0,
@@ -105,48 +104,134 @@ let store = {
         },
     },
 
+    _subscriber() {
+        console.log("subscriber");
+    },
+
     getState() {
         return this._state;
     },
 
+    _addName(text, ref) {
+        let newObj = {
+            id: this._state.dialogs.namesData.length,
+            name: text,
+            src: ref,
+        };
+        this._state.dialogs.namesData.push(newObj);
+        this._subscriber(this);
+    },
+
+    _addPost() {
+        switch (Boolean(this._state.profile.newText)) {
+            case true:
+                let newObj = {
+                    id: this._state.profile.postsData.length,
+                    text: this._state.profile.newText,
+                    likes: 0,
+                };
+                this._state.profile.postsData.push(newObj);
+                this._state.profile.newText = "";
+                this._subscriber(this);
+                break;
+
+            default:
+                alert("Поле пустое");
+        }
+    },
+
+    _changePostText(text) {
+        this._state.profile.newText = text;
+        this._subscriber(this);
+    },
+
+    _changeMessageText(text) {
+        this._state.dialogs.newText = text;
+        this._subscriber(this);
+    },
+
+    _addMessage() {
+        switch (Boolean(this._state.dialogs.newText)) {
+            case true:
+                let newObj = {
+                    id: this._state.dialogs.chatsData.length,
+                    message: this._state.dialogs.newText,
+                };
+
+                this._state.dialogs.chatsData.push(newObj);
+                this._state.dialogs.newText = "";
+                this._subscriber(this);
+                break;
+
+            default:
+                alert("Поле пустое :(");
+        }
+    },
+
     dispatch(action) {
         switch (action.type) {
-            case 'ADD-NAME':
-                let newObj = {
-                    id: this._state.dialogs.namesData.length,
-                    name: action.text,
-                    src: action.ref,
-                };
-        
-                this._state.dialogs.namesData.push(newObj);
-                this._subscriber(this);
+            case ADD_NAME:
+                this._addName(action.text, action.ref);
                 break;
-        
-            case 'ADD-POST':
-                if (this._state.profile.newText) {
-                    let newObj = {
-                        id: this._state.profile.postsData.length,
-                        text: this._state.profile.newText,
-                        likes: 0,
-                    };
-                    this._state.profile.postsData.push(newObj);
-                    this._state.profile.newText = "";
-                    this._subscriber(this);
-                } else alert("Поле пустое");
+
+            case ADD_POST:
+                this._addPost();
                 break;
-        
-            case 'CHANGE-POST-TEXT':
-                this._state.profile.newText = action.text;
-                this._subscriber(this);
+
+            case CHANGE_POST_TEXT:
+                this._changePostText(action.text);
                 break;
-                
-            default: console.log('default case? O_o');
+
+            case CHANGE_MESSAGE_TEXT:
+                this._changeMessageText(action.text);
+                break;
+
+            case ADD_MESSAGE:
+                this._addMessage();
+                break;
+
+            default:
+                break;
         }
     },
 
     subscribe(observer) {
         this._subscriber = observer;
-    }
+    },
+};
+
+export let addPostActionCreator = () => {
+    return {
+        type: ADD_POST,
+    };
+};
+
+export let changePostTextActionCreator = (text) => {
+    return {
+        type: CHANGE_POST_TEXT,
+        text: text,
+    };
+};
+
+export let addNameActionCreator = (text, ref) => {
+    return {
+        type: ADD_NAME,
+        text: text,
+        ref: ref,
+    };
+};
+
+export let changeMessageTextActionCreator = (text) => {
+    return {
+        type: CHANGE_MESSAGE_TEXT,
+        text: text,
+    };
+};
+
+export let addMessageActionCreator = () => {
+    return {
+        type: ADD_MESSAGE,
+    };
 };
 
 export default store;

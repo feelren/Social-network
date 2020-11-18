@@ -6,10 +6,11 @@ import PostAdd from "./PostAdd/PostAdd";
 const Profile = (props) => {
     return (
         <main className={s.wrapper}>
-            <PostAdd dispatch={props.dispatch} />
+            <PostAdd state={props.state} dispatch={props.dispatch} />
             <Posts state={props.state} />
         </main>
     );
 };
 
 export default Profile;
+ 

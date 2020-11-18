@@ -12,7 +12,7 @@ const Dialogs = (props) => {
             <div className={s.content}>
                 <Names state={props.state.namesData} dispatch={props.dispatch} />
                 <SplitLine />
-                <Chats state={props.state.chatsData} />
+                <Chats state={props.state} dispatch={props.dispatch} />
             </div>
         </div>
     );
