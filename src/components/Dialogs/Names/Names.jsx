@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Names.module.css";
 import { NavLink } from "react-router-dom";
-import { addNameActionCreator } from "../../../redux/state";
+import { addNameActionCreator } from "../../../redux/dialogs-reducer";
 
 const Name = (props) => {
     let path = "/dialogs/" + props.id;

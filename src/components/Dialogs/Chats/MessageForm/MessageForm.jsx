@@ -1,5 +1,5 @@
 import React from "react";
-import { addMessageActionCreator, changeMessageTextActionCreator } from "../../../../redux/state";
+import { addMessageActionCreator, changeMessageTextActionCreator } from "../../../../redux/dialogs-reducer";
 import s from "./MessageForm.module.css";
 
 
@@ -9,7 +9,7 @@ const MessageForm = (props) => {
 
     let changeMessageText = () => {
         let text = textarea.current.value;
-        props.dispatch(changeMessageTextActionCreator(text))
+        props.dispatch(changeMessageTextActionCreator(text));
     }
 
     let addMessage = () => props.dispatch(addMessageActionCreator());
