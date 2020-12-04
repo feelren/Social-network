@@ -4,12 +4,3 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
-.textarea {
-    width: 20vw;
-    border-radius: 5px;
-}
-
-.chat_item {
-    padding: 7px;
-}

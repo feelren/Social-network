@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./Dialogs.module.css";
-import Names from "./Names/Names";
-import Chats from "./Chats/Chats";
+import ChatsContainer from "./ChatsContainer/ChatsContainer";
 import SplitLine from './SplitLine/SplitLine'
+import UsersContainer from "./UsersList/UsersList";
 
 const Dialogs = (props) => {
     return (
@@ -10,9 +10,9 @@ const Dialogs = (props) => {
             <header className={s.header}>Мои сообщения</header>
             <hr />
             <div className={s.content}>
-                <Names state={props.state.namesData} dispatch={props.dispatch} />
+                <UsersContainer state={props.state.namesData} dispatch={props.dispatch} />
                 <SplitLine />
-                <Chats state={props.state} dispatch={props.dispatch} />
+                <ChatsContainer state={props.state} dispatch={props.dispatch} />
             </div>
         </div>
     );

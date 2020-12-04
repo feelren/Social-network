@@ -1,4 +1,3 @@
-export const ADD_NAME = "ADD-NAME";
 const CHANGE_MESSAGE_TEXT = "CHANGE-MESSAGE-TEXT";
 const ADD_MESSAGE = "ADD-MESSAGE";
 
@@ -44,8 +43,7 @@ let initialState = {
             {
                   id: 2,
                   name: "Мотя",
-                  src:
-                        "https://sun9-47.userapi.com/impf/n3TZaSTTR7fT_PRqYF_ibZiaC7UnWbVFMGUt1Q/6nJSpx1zmEM.jpg?size=200x0&quality=90&crop=26,26,483,754&sign=190dde022b01aa0df1d34e56e61558bb&ava=1",
+                  src: "https://sun9-47.userapi.com/impf/n3TZaSTTR7fT_PRqYF_ibZiaC7UnWbVFMGUt1Q/6nJSpx1zmEM.jpg?size=200x0&quality=90&crop=26,26,483,754&sign=190dde022b01aa0df1d34e56e61558bb&ava=1",
             },
             {
                   id: 3,
@@ -60,23 +58,13 @@ let initialState = {
             {
                   id: 5,
                   name: "Лиса",
-                  src:
-                        "https://sun9-45.userapi.com/impg/mbAXP7oFkteb-TWb2KxBMGpXzVkPJHf1kQgzfA/7fLxjHjpBEI.jpg?size=200x0&quality=90&crop=3,14,794,794&sign=26fb5196730f207235564a221e319b56&ava=1",
+                  src: "https://sun9-45.userapi.com/impg/mbAXP7oFkteb-TWb2KxBMGpXzVkPJHf1kQgzfA/7fLxjHjpBEI.jpg?size=200x0&quality=90&crop=3,14,794,794&sign=26fb5196730f207235564a221e319b56&ava=1",
             },
       ],
 };
 
 let dialogsReducer = (state = initialState, action) => {
       switch (action.type) {
-            case ADD_NAME:
-                  let newObj = {
-                        id: state.namesData.length,
-                        name: action.text,
-                        src: action.ref,
-                  };
-                  state.namesData.push(newObj);
-                  return state;
-
             case CHANGE_MESSAGE_TEXT:
                   state.newText = action.text;
                   return state;
@@ -101,14 +89,6 @@ let dialogsReducer = (state = initialState, action) => {
             default:
                   return state;
       }
-};
-
-export let addNameActionCreator = (text, ref) => {
-      return {
-            type: ADD_NAME,
-            text: text,
-            ref: ref,
-      };
 };
 
 export let changeMessageTextActionCreator = (text) => {
