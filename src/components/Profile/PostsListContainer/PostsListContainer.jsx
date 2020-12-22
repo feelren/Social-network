@@ -1,7 +1,9 @@
 import React from "react";
-import s from "./Posts.module.css";
+import { connect } from "react-redux";
+import s from "./PostsList/PostsList.module.css";
+import PostsList from "./PostsList/PostsList";
 
-const OnePost = (props) => {
+const Post = (props) => {
     return (
         <section className={s.post}>
             <div className={s.container_left}>
@@ -19,10 +21,15 @@ const OnePost = (props) => {
     );
 };
 
-const Posts = (props) => {
-    let postsElements = props.state.postsData.map((item) => <OnePost text={item.text} likes={item.likes} />);
 
-    return <div className={s.posts}>{postsElements}</div>;
-};
+let mapStateToProps = (state) => {
+    let postsElements = state.profile.postsData.map((item) => <Post text={item.text} likes={item.likes} />);
 
-export default Posts;
+    return {
+        state: postsElements,
+    };
+}
+
+const PostsListContainer = connect(mapStateToProps, null)(PostsList);
+
+export default PostsListContainer;

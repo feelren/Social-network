@@ -39,30 +39,38 @@ let initialState = {
 
 let profileReducer = (state = initialState, action) => {
       switch (action.type) {
-            case ADD_POST:
+            case ADD_POST: {
                   switch (Boolean(state.newText)) {
-                        case true:
+                        case true: {
                               let newObj = {
                                     id: state.postsData.length,
                                     text: state.newText,
                                     likes: 0,
                               };
-                              state.postsData.push(newObj);
-                              state.newText = "";
-                              break;
+                              let stateCopy = {...state};
+                              stateCopy.postsData = [...state.postsData];
+                              stateCopy.postsData.push(newObj);
+                              stateCopy.newText = "";
+                              return stateCopy;
+                        }
 
-                        default:
+                        default: {
                               alert("Поле пустое");
                               break;
+                        }
                   }
-                  return state;
+                  break;
+            }
 
-            case CHANGE_POST_TEXT:
-                  state.newText = action.text;
-                  return state;
+            case CHANGE_POST_TEXT: {
+                  let stateCopy = {...state};
+                  stateCopy.newText = action.text;
+                  return stateCopy;
+            }
 
-            default:
+            default: {
                   return state;
+            }
       }
 };
 

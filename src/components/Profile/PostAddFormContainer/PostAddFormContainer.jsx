@@ -1,17 +1,28 @@
-import React from "react";
+import { connect } from "react-redux";
 import { addPostActionCreator, changePostTextActionCreator } from "../../../redux/profile-reducer";
 import PostAddForm from "./PostAddForm/PostAddForm";
 
 
-const PostAddFormContainer = (props) => {
+let mapStateToProps = (state) => {
+    let newText = state.profile.newText;
 
-    let addPost = () => props.dispatch(addPostActionCreator());
+    return {
+        state: newText
+    };
+}
 
-    function changeText(text) {
-        props.dispatch(changePostTextActionCreator(text));
-    }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addPost() {
+            dispatch(addPostActionCreator())
+        },
 
-    return <PostAddForm value={props.state.newText} changeText={changeText} addPost={addPost} />
-};
+        changeText(text) {
+            dispatch(changePostTextActionCreator(text))
+        }
+    };
+}
+
+const PostAddFormContainer = connect(mapStateToProps, mapDispatchToProps)(PostAddForm);
 
 export default PostAddFormContainer;

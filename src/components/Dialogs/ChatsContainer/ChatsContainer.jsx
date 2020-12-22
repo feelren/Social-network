@@ -1,25 +1,23 @@
 import React from "react";
-import { addMessageActionCreator, changeMessageTextActionCreator } from "../../../redux/dialogs-reducer";
-import s from "./ChatsContainer.module.css";
+import s from "./ChatsList/ChatsList.module.css";
 import ChatsList from "./ChatsList/ChatsList";
-import MessageForm from "./MessageForm/MessageForm";
+import { connect } from "react-redux";
 
-
-
-const ChatsContainer = (props) => {
-
-    let changeMessageText = (text) => {
-        props.dispatch(changeMessageTextActionCreator(text));
-    };
-
-    let addMessage = () => props.dispatch(addMessageActionCreator());
-
-    return (
-        <div className={s.wrapper}>
-            <ChatsList state={props.state.chatsData} />
-            <MessageForm newText={props.state.newText} changeMessageText={changeMessageText} addMessage={addMessage} />
-        </div>
-    );
+const Message = (props) => {
+    return <div className={s.message}>{props.message}</div>;
 };
+
+
+
+let mapStateToProps = state => {
+    console.log(state.dialogs.namesData);
+    let chatsElements = state.dialogs.chatsData.map((c) => <Message id={c.id} message={c.message} />);
+    return {
+        chatsElements: chatsElements,
+    }
+}
+
+const ChatsContainer = connect(mapStateToProps, null)(ChatsList)
+
 
 export default ChatsContainer;

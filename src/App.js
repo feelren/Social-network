@@ -6,14 +6,14 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 
-function App(props) {
+function App() {
       return (
             <div className="wrapper">
                   <Header />
-                  <Sidebar state={props.state.dialogs.namesData} />
+                  <Sidebar />
                   <div className="wrapper-content">
-                        <Route path="/profile" render={() => <Profile state={props.state.profile} dispatch={props.dispatch} />} />
-                        <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogs} dispatch={props.dispatch} />} />
+                        <Route path="/profile" render={() => <Profile />} />
+                        <Route path="/dialogs" render={() => <Dialogs />} />
                   </div>
             </div>
       );

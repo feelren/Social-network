@@ -1,14 +1,14 @@
 import React from "react";
 import s from "./Profile.module.css";
-import Posts from "./Posts/Posts";
+import PostsListContainer from "./PostsListContainer/PostsListContainer";
 import PostAddFormContainer from "./PostAddFormContainer/PostAddFormContainer";
 
 
-const Profile = (props) => {
+const Profile = () => {
     return (
         <main className={s.wrapper}>
-            <PostAddFormContainer state={props.state} dispatch={props.dispatch} />
-            <Posts state={props.state} />
+            <PostAddFormContainer />
+            <PostsListContainer />
         </main>
     );
 };
