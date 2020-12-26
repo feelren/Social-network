@@ -47,11 +47,7 @@ let profileReducer = (state = initialState, action) => {
                                     text: state.newText,
                                     likes: 0,
                               };
-                              let stateCopy = {...state};
-                              stateCopy.postsData = [...state.postsData];
-                              stateCopy.postsData.push(newObj);
-                              stateCopy.newText = "";
-                              return stateCopy;
+                              return {...state, newText: "", postsData: [...state.postsData, newObj]};
                         }
 
                         default: {
@@ -59,13 +55,11 @@ let profileReducer = (state = initialState, action) => {
                               break;
                         }
                   }
-                  break;
+                  return state;
             }
 
             case CHANGE_POST_TEXT: {
-                  let stateCopy = {...state};
-                  stateCopy.newText = action.text;
-                  return stateCopy;
+                  return {...state, newText: action.text};
             }
 
             default: {

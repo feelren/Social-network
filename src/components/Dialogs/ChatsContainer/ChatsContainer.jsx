@@ -10,7 +10,6 @@ const Message = (props) => {
 
 
 let mapStateToProps = state => {
-    console.log(state.dialogs.namesData);
     let chatsElements = state.dialogs.chatsData.map((c) => <Message id={c.id} message={c.message} />);
     return {
         chatsElements: chatsElements,

@@ -3,6 +3,7 @@ import s from "./Dialogs.module.css";
 import ChatsContainer from "./ChatsContainer/ChatsContainer";
 import SplitLine from './SplitLine/SplitLine'
 import UsersListContainer from "./UsersListContainer/UsersListContainer";
+import AddMessageFormContainer from "./AddMessageFormContainer/AddMessageFormContainer";
 
 const Dialogs = () => {
     return (
@@ -13,6 +14,7 @@ const Dialogs = () => {
                 <SplitLine />
                 <ChatsContainer />
             </div>
+            <AddMessageFormContainer />
         </div >
     )
 };

@@ -71,30 +71,26 @@ let initialState = {
 
 let dialogsReducer = (state = initialState, action) => {
       switch (action.type) {
-            case CHANGE_MESSAGE_TEXT: {
-                  let stateCopy = {...state};
-                  stateCopy.newText = action.text;
-                  return stateCopy;
-            }
-
             case ADD_MESSAGE: {
                   switch (Boolean(state.newText)) {
-                        case true:
+                        case true: {
                               let newObj = {
                                     id: state.chatsData.length,
                                     message: state.newText,
                               };
-                              let stateCopy = {...state};
-                              stateCopy.chatsData = [...state.chatsData];
-                              stateCopy.chatsData.push(newObj);
-                              stateCopy.newText = "";
-                              return stateCopy;
+                              return {...state, newText: "", chatsData: [...state.chatsData, newObj]};
+                        }
 
-                        default:
+                        default: {
                               alert("Поле пустое :(");
                               break;
+                        }
                   }
-                  break;
+                  return state;
+            }
+
+            case CHANGE_MESSAGE_TEXT: {
+                  return {...state, newText: action.text};
             }
 
             default: {

@@ -21,3 +21,13 @@
 .wrapper p {
     margin: 0;
 }
+
+.wrapper div {
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.wrapper div:hover {
+    background-color: rgb(59, 59, 59);
+    color: white;
+}
