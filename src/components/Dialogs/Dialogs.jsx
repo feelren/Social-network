@@ -1,18 +1,18 @@
 import React from "react";
 import s from "./Dialogs.module.css";
-import ChatsContainer from "./ChatsContainer/ChatsContainer";
+import ChatsListContainer from "./ChatsListContainer/ChatsListContainer";
 import SplitLine from './SplitLine/SplitLine'
-import UsersListContainer from "./UsersListContainer/UsersListContainer";
 import AddMessageFormContainer from "./AddMessageFormContainer/AddMessageFormContainer";
+import InterlocutorsContainer from "./InterlocutorsContainer/InterlocutorsContainer";
 
 const Dialogs = () => {
     return (
         <div className={s.wrapper}>
-            <header className={s.header}>Мои сообщения</header>
+            <header className='title'>Мои сообщения</header>
             <div className={s.content}>
-                <UsersListContainer />
+                <InterlocutorsContainer />
                 <SplitLine />
-                <ChatsContainer />
+                <ChatsListContainer />
             </div>
             <AddMessageFormContainer />
         </div >

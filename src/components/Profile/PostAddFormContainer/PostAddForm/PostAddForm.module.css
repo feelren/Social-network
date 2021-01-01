@@ -1,9 +1,15 @@
+.wrapper button {
+    padding: 5px 20px;
+    border-radius: 3px;
+    border: none;
+}
+
 .textarea {
     width: 80%;
     display: block;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
-.wrapper > * {
+.wrapper>* {
     margin-bottom: 10px;
 }

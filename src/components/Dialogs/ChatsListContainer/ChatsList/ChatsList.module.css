@@ -7,12 +7,11 @@
 }
 
 .message {
-    padding: 5px;
-    margin: 10px 0;
+    padding: 10px 5px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .message:hover {
-    background-color: #c0c0c0;
+    background-color: #fff;
 }

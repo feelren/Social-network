@@ -14,7 +14,7 @@ const PostAddForm = (props) => {
 
     return (
         <div className={s.wrapper}>
-            <p>Добавьте пост</p>
+            <header className='title'>Добавьте пост</header>
             <textarea className={s.textarea} value={props.state} id='textarea' ref={textarea} rows="5" onChange={changeText}></textarea>
             <button onClick={addPost}>Показать</button>
         </div>

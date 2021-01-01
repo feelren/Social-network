@@ -1,0 +1,71 @@
+.user_wrapper {
+    margin: 30px auto;
+    display: flex;
+    max-width: 80%;
+
+}
+
+.user_photo {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+
+.user_content {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    margin-left: 20px;
+    justify-content: space-between;
+    background-color: #b9b9b9;
+    border: 3px solid #3a3a3a;
+    border-radius: 7px;
+}
+
+.user_name {
+    font-weight: bold;
+}
+
+.user_status {
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.user_content_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.user_content_right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user_photo img {
+    margin: 0 auto;
+    height: 80px;
+    width: 80px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+}
+
+.user_photo button {
+    padding: 5px;
+    border-radius: 7px;
+    border: none;
+}
+
+.user_photo button:focus {
+    outline: none;
+}
+
+.subscribe_button {
+    background-color: lightgreen;
+}
+
+.unsubscribe_button {
+    background-color: #ff8080;
+}
