@@ -2,7 +2,25 @@
     margin: 30px auto;
     display: flex;
     max-width: 80%;
+}
 
+.selectedPage {
+    font-weight: bold;
+}
+
+.pageNumbers {
+    display: flex;
+    justify-content: center;
+}
+
+.pageNumbers div {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pageNumbers div:hover {
+    background-color: #fff;
 }
 
 .user_photo {
