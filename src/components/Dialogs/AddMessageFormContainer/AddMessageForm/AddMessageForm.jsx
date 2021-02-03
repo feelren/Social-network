@@ -17,7 +17,7 @@ const AddMessageForm = (props) => {
 
     return (
         <div className={s.wrapper}>
-            <textarea class={s.textarea} rows="1" ref={textarea} value={props.state} onChange={changeMessageText}></textarea>
+            <textarea className={s.textarea} rows="1" ref={textarea} value={props.state} onChange={changeMessageText}></textarea>
             <button className={s.button} onClick={addMessage}>Отправить</button>
         </div>
 

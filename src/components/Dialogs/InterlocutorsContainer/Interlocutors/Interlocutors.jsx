@@ -21,7 +21,7 @@ const Interlocutors = (props) => {
                     let path = "/dialogs/" + user.id;
                     return (
 
-                        <div className={s.wrapper}>
+                        <div className={s.wrapper} key={user.id}>
                             <NavLink className={s.user} key={user.id} to={path}>
                                 <img src={user.photos.small ? user.photos.small : catAvatar} alt="аватарка" />
                                 <p>{user.name}</p>

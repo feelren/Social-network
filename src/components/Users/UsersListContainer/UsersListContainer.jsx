@@ -1,7 +1,36 @@
-
+import React from 'react'
 import { connect } from 'react-redux';
-import { followAC, unfollowAC, setUsersAC, setUsersTotalCountAC, changeCurrentPageAC, } from '../../../redux/users-reducer';
+import { setUsers, setUsersTotalCount, toggleIsFetching, getUsersTC, unfollowTC, followTC, changePageTC } from '../../../redux/users-reducer';
 import UsersList from './UsersList/UsersList';
+import Preloader from '../../Preloader/Preloader';
+
+class UsersListAPI extends React.Component {
+
+    componentDidMount() {
+        this.props.getUsersTC(this.props.currentPage, this.props.usersPerPage)
+    }
+
+    render() {
+        return (
+            <>
+                {this.props.isFetching
+                    ? <Preloader />
+                    : <UsersList
+                        users={this.props.users}
+                        totalUsersCount={this.props.totalUsersCount}
+                        currentPage={this.props.currentPage}
+                        unfollowTC={this.props.unfollowTC}
+                        followTC={this.props.followTC}
+                        changePageTC={this.props.changePageTC}
+                        isInProgress={this.props.isInProgress}
+                        usersPerPage={this.props.usersPerPage}
+                    />
+                }
+            </>
+        )
+    }
+}
+
 
 let mapStateToProps = state => {
     return {
@@ -9,34 +38,20 @@ let mapStateToProps = state => {
         totalUsersCount: state.users.totalUsersCount,
         usersPerPage: state.users.usersPerPage,
         currentPage: state.users.currentPage,
-
+        isFetching: state.users.isFetching,
+        isInProgress: state.users.isInProgress
     };
 }
 
-let mapDispatchToProps = dispatch => {
-    return {
-        setUsers(users) {
-            dispatch(setUsersAC(users))
-        },
-
-        follow(id) {
-            dispatch(followAC(id))
-        },
-
-        unfollow(id) {
-            dispatch(unfollowAC(id))
-        },
-
-        setUsersTotalCount(count) {
-            dispatch(setUsersTotalCountAC(count))
-        },
-
-        changeCurrentPage(pageMoveTo) {
-            dispatch(changeCurrentPageAC(pageMoveTo))
-        }
-    };
+let dispatchObject = {
+    setUsers,
+    toggleIsFetching,
+    getUsersTC,
+    changePageTC,
+    unfollowTC,
+    followTC
 }
 
-const UsersContainer = connect(mapStateToProps, mapDispatchToProps)(UsersList);
 
-export default UsersContainer;
+export default connect(mapStateToProps, dispatchObject)(UsersListAPI);
+

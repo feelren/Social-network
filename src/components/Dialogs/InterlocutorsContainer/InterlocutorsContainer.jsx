@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Interlocutors from "./Interlocutors/Interlocutors";
-import { setUsersAC } from "../../../redux/users-reducer";
+import { setUsers } from "../../../redux/users-reducer";
 
 
 
@@ -11,15 +11,7 @@ let mapStateToProps = (state) => {
     };
 };
 
-let mapDispatchToProps = dispatch => {
-    return {
-        setUsers(users) {
-            dispatch(setUsersAC(users))
-        },
-    }
-}
-
-const InterlocutorsContainer = connect(mapStateToProps, mapDispatchToProps)(Interlocutors);
+const InterlocutorsContainer = connect(mapStateToProps, { setUsers })(Interlocutors);
 
 
 

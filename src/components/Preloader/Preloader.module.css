@@ -1,0 +1,18 @@
+.wrapper {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 50px;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.wrapper>span {
+    padding: 5px 10px;
+    font-size: 25px;
+    border-radius: 7px;
+    background-color: #c7d5dc;
+}

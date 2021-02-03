@@ -1,13 +1,15 @@
 import React from "react";
-import PostsListContainer from "./PostsListContainer/PostsListContainer";
-import PostAddFormContainer from "./PostAddFormContainer/PostAddFormContainer";
+import PostAddForm from "./PostAddFormContainer/PostAddForm/PostAddForm";
+import PostsList from "./PostsList/PostsList";
+import UserInfo from "./UserInfo/UserInfo";
 
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <main>
-            <PostAddFormContainer />
-            <PostsListContainer />
+            <UserInfo {...props} />
+            <PostAddForm {...props} />
+            <PostsList {...props} />
         </main>
     );
 };

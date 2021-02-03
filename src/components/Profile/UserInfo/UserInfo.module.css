@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.photo {
+    max-width: 30%;
+    margin-right: 30px;
+}
+
+.info {
+    width: 100%;
+}
+
+.info p {
+    margin-bottom: 10px;
+}
+
+.photo>img {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+.contact_wrapper {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.1s;
+}
+
+.contact_wrapper:hover {
+    background-color: gray;
+}
+
+.contacts a {
+    color: antiquewhite;
+    text-decoration: none;
+}

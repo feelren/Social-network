@@ -24,6 +24,7 @@ body {
 }
 
 .wrapper-content {
+    position: relative;
     padding: 10px 30px;
     grid-area: main;
     background-color: saddlebrown;

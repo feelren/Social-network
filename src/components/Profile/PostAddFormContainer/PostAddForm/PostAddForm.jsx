@@ -7,16 +7,15 @@ const PostAddForm = (props) => {
 
     let addPost = () => props.addPost();
 
-    let changeText = text => {
+    let changePostText = text => {
         text = textarea.current.value;
-        props.changeText(text);
+        props.changePostText(text);
     };
 
     return (
         <div className={s.wrapper}>
-            <header className='title'>Добавьте пост</header>
-            <textarea className={s.textarea} value={props.state} id='textarea' ref={textarea} rows="5" onChange={changeText}></textarea>
-            <button onClick={addPost}>Показать</button>
+            <textarea className={s.textarea} value={props.newText} id='textarea' ref={textarea} rows="2" onChange={changePostText}></textarea>
+            <button onClick={addPost}>Добавить пост</button>
         </div>
     );
 };
