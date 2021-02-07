@@ -1,19 +1,25 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import s from "./Header.module.css";
 
-const Header = (props) => {
+const Header = () => {
+    let { email, login } = useSelector(state => state.auth);
+    let isLogined = useSelector(state => state.auth.isLogined);
+
     return (
         <header className={s.header}>
             <img className={s.img} src="https://cdn.worldvectorlogo.com/logos/principle-app-2.svg" alt="logo" />
+
             {
-                props.login ?
+                isLogined ?
                     <div className={s.logined}>
-                        <div>Your login: <span>{props.login}</span></div>
-                        <div>{props.email}</div>
+                        <div>Your login: <span>{login}</span></div>
+                        <div>{email}</div>
                     </div>
                     : <NavLink to='/login' >Click to log in</NavLink>
             }
+
         </header>
     );
 };

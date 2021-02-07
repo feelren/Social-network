@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { setUsers, setUsersTotalCount, toggleIsFetching, getUsersTC, unfollowTC, followTC, changePageTC } from '../../../redux/users-reducer';
+import { getUsersTC, unfollowTC, followTC, changePageTC } from '../../../redux/users-reducer';
 import UsersList from './UsersList/UsersList';
 import Preloader from '../../Preloader/Preloader';
 
@@ -31,7 +31,6 @@ class UsersListAPI extends React.Component {
     }
 }
 
-
 let mapStateToProps = state => {
     return {
         users: state.users.usersData,
@@ -44,8 +43,6 @@ let mapStateToProps = state => {
 }
 
 let dispatchObject = {
-    setUsers,
-    toggleIsFetching,
     getUsersTC,
     changePageTC,
     unfollowTC,
