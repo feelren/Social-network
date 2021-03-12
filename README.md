@@ -1,3 +1,8 @@
+Социальная сеть. Начало погружения в Реакт по курсу "путь самурая". 
+React, Redux, Thunk, Axios.
+Реализована авторизация, пагинация, подписка на пользователей и отписка от них.
+Очень много неактуального кода (контейнеры, классы, ХОКи и совсем чуть-чуть хуков).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
